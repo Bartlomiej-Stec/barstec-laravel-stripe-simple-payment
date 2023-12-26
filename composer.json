@@ -1,0 +1,32 @@
+{
+    "name": "barstec/laravel-stripe-simple-payment",
+    "description": "Package for easily integrating stripe one-time payments with Laravel.",
+    "keywords": ["laravel", "stripe", "framework", "api", "package", "payments"],
+    "type": "library",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "authors": [
+        {
+            "name": "Bartłomiej Stec"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Barstec\\Stripe\\": "src/"
+        }
+    },
+    "require": {
+        "illuminate/support": "^10.0",
+        "stripe/stripe-php": "^13.7"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Barstec\\Stripe\\StripeServiceProvider"
+            ],
+            "aliases": {
+                "Stripe": "Barstec\\Stripe\\StripeFacade"
+            }
+        }
+    }
+}
