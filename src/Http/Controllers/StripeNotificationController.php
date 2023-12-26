@@ -6,7 +6,6 @@ namespace Barstec\Stripe\Http\Controllers;
 
 use Stripe\Webhook;
 use Barstec\Stripe\Order;
-use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use UnexpectedValueException;
 use Illuminate\Routing\Controller;
@@ -15,7 +14,7 @@ use Stripe\Exception\SignatureVerificationException;
 
 class StripeNotificationController extends Controller
 {
-    public function handle(Request $request): Response
+    public function handle(StripeNotificationController $request): Response
     {
         try {
             $event = Webhook::constructEvent(
@@ -29,7 +28,6 @@ class StripeNotificationController extends Controller
             return response()->json(['error' => 'Invalid payload'], 400);
         }
 
-        Log::info(json_encode($request->all()));
         $order = new Order($event->type, $request->all());
         if ($order->statusChanged()) {
             $order->update();
