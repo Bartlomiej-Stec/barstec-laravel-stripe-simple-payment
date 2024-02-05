@@ -21,12 +21,12 @@ class Payload
 
     public function __construct()
     {
-        if (Route::has(config('stripe.default_return_route'))) {
-            $this->setReturnUrl(route(config('stripe.default_return_route')));
+        if (Route::has(config('stripe.default_success_route'))) {
+            $this->setReturnUrl(route(config('stripe.default_success_route')));
         }
 
-        if (Route::has(config('stripe.default_negative_return_route'))) {
-            $this->setCancelUrl(route(config('stripe.default_negative_return_route')));
+        if (Route::has(config('stripe.default_cancel_route'))) {
+            $this->setCancelUrl(route(config('stripe.default_cancel_route')));
         }
         $this->setCurrency(config('stripe.default_currency'));
         $this->setUiMode(config('stripe.ui_mode'));
