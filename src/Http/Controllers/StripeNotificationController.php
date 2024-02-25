@@ -3,8 +3,6 @@
 namespace Barstec\Stripe\Http\Controllers;
 
 
-
-use Barstec\Stripe\Http\Requests\StripeNotificationRequest;
 use Stripe\Webhook;
 use Barstec\Stripe\Order;
 use Illuminate\Http\Response;
@@ -12,6 +10,7 @@ use UnexpectedValueException;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Log;
 use Stripe\Exception\SignatureVerificationException;
+use Barstec\Stripe\Http\Requests\StripeNotificationRequest;
 
 class StripeNotificationController extends Controller
 {

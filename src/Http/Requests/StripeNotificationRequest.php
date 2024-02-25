@@ -2,7 +2,7 @@
 
 namespace Barstec\Stripe\Http\Requests;
 
-use Illuminate\Support\Facades\Validator;
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StripeNotificationRequest extends FormRequest
