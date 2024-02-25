@@ -4,6 +4,7 @@ namespace Barstec\Stripe\Http\Controllers;
 
 
 
+use Barstec\Stripe\Http\Requests\StripeNotificationRequest;
 use Stripe\Webhook;
 use Barstec\Stripe\Order;
 use Illuminate\Http\Response;
@@ -14,7 +15,7 @@ use Stripe\Exception\SignatureVerificationException;
 
 class StripeNotificationController extends Controller
 {
-    public function handle(StripeNotificationController $request): Response
+    public function handle(StripeNotificationRequest $request): Response
     {
         try {
             $event = Webhook::constructEvent(
